@@ -1,0 +1,30 @@
+{
+  "hero_title": "Making Sense of Work with AI",
+  "hero_subtitle": "Intelligent solutions that transform how you work",
+  "cta_text": "Get Started",
+  "cta_link": "#contact",
+  "sections": [
+    {
+      "title": "About Sensework",
+      "content": "We build AI-powered tools that help teams work smarter, not harder. Our solutions are designed to integrate seamlessly into your existing workflows."
+    },
+    {
+      "title": "Our Approach",
+      "content": "We believe AI should augment human intelligence, not replace it. Our tools are built to enhance decision-making, automate repetitive tasks, and unlock insights from your data.",
+      "features": [
+        {
+          "title": "Human-Centered AI",
+          "description": "Solutions designed with people in mind"
+        },
+        {
+          "title": "Seamless Integration",
+          "description": "Works with your existing tools and processes"
+        },
+        {
+          "title": "Actionable Insights",
+          "description": "Turn data into decisions"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.hero_title | default(config.title) }} - {{ config.title }}{% endblock %}
+{% block description %}{{ page.hero_subtitle | default(config.description) }}{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>{{ page.hero_title }}</h1>
+    {% if page.hero_subtitle %}
+    <p class="hero-subtitle">{{ page.hero_subtitle }}</p>
+    {% endif %}
+    {% if page.cta_text %}
+    <a href="{{ page.cta_link | default('#') }}" class="btn btn-primary">{{ page.cta_text }}</a>
+    {% endif %}
+</section>
+
+{% if page.sections %}
+{% for section in page.sections %}
+<section class="content-section">
+    {% if section.title %}
+    <h2>{{ section.title }}</h2>
+    {% endif %}
+    {% if section.content %}
+    <div class="section-content">
+        {{ section.content | markdown | safe }}
+    </div>
+    {% endif %}
+    {% if section.features %}
+    <ul class="feature-list">
+        {% for item in section.features %}
+        <li>
+            {% if item.title %}<strong>{{ item.title }}</strong>{% endif %}
+            {% if item.description %}<p>{{ item.description }}</p>{% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</section>
+{% endfor %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="{{ config.language | default('en') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="{% block robots %}index, follow{% endblock %}">
+    <meta name="theme-color" content="{{ config.theme_color | default('#2563eb') }}">
+
+    <title>{% block title %}{{ config.title }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ config.description }}{% endblock %}">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    <!-- Language/Locale -->
+    <meta property="og:locale" content="{{ config.locale | default('en_US') }}">
+    {% if config.alternate_languages %}
+    {% for lang in config.alternate_languages %}
+    <link rel="alternate" hreflang="{{ lang.code }}" href="{{ lang.url }}">
+    {% endfor %}
+    {% endif %}
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}{{ self.title() }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{{ self.description() }}{% endblock %}">
+    <meta property="og:url" content="{{ canonical_url }}">
+    <meta property="og:site_name" content="{{ config.title }}">
+    {% set og_image = page.image if page and page.image else config.default_image %}
+    {% if og_image %}
+    <meta property="og:image" content="https://{{ config.domain }}{{ og_image }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{{ self.title() }}">
+    {% endif %}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ self.title() }}">
+    <meta name="twitter:description" content="{{ self.description() }}">
+    {% if og_image %}
+    <meta name="twitter:image" content="https://{{ config.domain }}{{ og_image }}">
+    <meta name="twitter:image:alt" content="{{ self.title() }}">
+    {% endif %}
+    {% if config.twitter_handle %}
+    <meta name="twitter:site" content="{{ config.twitter_handle }}">
+    {% endif %}
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {{ json_ld | safe }}
+    </script>
+
+    <!-- Preconnect to external resources -->
+    {% block preconnect %}{% endblock %}
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/style.css">
+
+    <!-- Favicon -->
+    {% if config.favicon %}
+    <link rel="icon" href="{{ config.favicon }}" type="image/x-icon">
+    {% endif %}
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav-container">
+            <a href="/" class="site-logo">{{ config.title }}</a>
+            <ul class="nav-links">
+                {% block nav %}
+                <li><a href="/">Home</a></li>
+                {% endblock %}
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; {{ config.title }} {{ now().year if now is defined else '2024' }}</p>
+        </div>
+    </footer>
+</body>
+</html>
