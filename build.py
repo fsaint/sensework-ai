@@ -52,9 +52,9 @@ def generate_json_ld(config: dict, page_type: str, data: dict = None) -> str:
             "@type": "Article",
             "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": f"{base_url}/{data.get('slug', '')}/"
+                "@id": f"{base_url}/articles/{data.get('slug', '')}/"
             },
-            "url": f"{base_url}/{data.get('slug', '')}/",
+            "url": f"{base_url}/articles/{data.get('slug', '')}/",
             "headline": data.get("title", ""),
             "description": data.get("description", ""),
             "datePublished": data.get("date", ""),
@@ -154,22 +154,22 @@ def build_site():
             html = template.render(
                 config=config,
                 article=article_data,
-                canonical_url=f"{base_url}/{slug}/",
+                canonical_url=f"{base_url}/articles/{slug}/",
                 json_ld=generate_json_ld(config, "article", article_data),
             )
 
-            # Create clean URL directory
-            article_dir = dist / slug
+            # Create clean URL directory under /articles/
+            article_dir = dist / "articles" / slug
             article_dir.mkdir(parents=True, exist_ok=True)
             (article_dir / "index.html").write_text(html, encoding='utf-8')
-            print(f"  Generated {slug}/index.html")
+            print(f"  Generated articles/{slug}/index.html")
 
     # Generate sitemap.xml
     base_url = f"https://{domain}"
     sitemap_urls = [{"loc": base_url + "/", "priority": "1.0"}]
     for article in articles:
         sitemap_urls.append({
-            "loc": f"{base_url}/{article['slug']}/",
+            "loc": f"{base_url}/articles/{article['slug']}/",
             "lastmod": article.get("date", ""),
             "priority": "0.8"
         })
