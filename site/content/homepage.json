@@ -1,28 +1,57 @@
 {
   "hero_title": "Making Sense of Work with AI",
-  "hero_subtitle": "Intelligent solutions that transform how you work",
-  "cta_text": "Get Started",
-  "cta_link": "#contact",
+  "hero_subtitle": "A think tank for AI governance, strategy, and executive enablement",
+  "cta_text": "Read Our Framework",
+  "cta_link": "/articles/ai-governance-framework",
   "sections": [
     {
-      "title": "About Sensework",
-      "content": "We build AI-powered tools that help teams work smarter, not harder. Our solutions are designed to integrate seamlessly into your existing workflows."
+      "title": "Our Mission",
+      "content": "We help organizations navigate the strategic implications of AI. As AI agents become embedded in business operations, leadership must understand not just the technology, but its governance, economics, and organizational impact."
     },
     {
-      "title": "Our Approach",
-      "content": "We believe AI should augment human intelligence, not replace it. Our tools are built to enhance decision-making, automate repetitive tasks, and unlock insights from your data.",
+      "title": "What We Believe",
       "features": [
         {
-          "title": "Human-Centered AI",
-          "description": "Solutions designed with people in mind"
+          "title": "AI is a Leadership Issue",
+          "description": "If software was a competitive advantage, AI is 10x more important. These decisions belong at the executive level, not buried in IT."
         },
         {
-          "title": "Seamless Integration",
-          "description": "Works with your existing tools and processes"
+          "title": "The Best Governance is Minimal Governance",
+          "description": "Governance is expensive and limiting. Push controls into architecture where they're automatic, invisible, and don't slow people down."
         },
         {
-          "title": "Actionable Insights",
-          "description": "Turn data into decisions"
+          "title": "Agents Need External Controls",
+          "description": "AI agents cannot be trusted to govern themselves. Security and oversight must live in a context the agent cannot access or modify."
+        },
+        {
+          "title": "Leaders Must Experience the Power",
+          "description": "Executives can't build AI strategy from slide decks. They need hands-on experience to understand what's possible and make informed decisions."
+        }
+      ]
+    },
+    {
+      "title": "Featured",
+      "features": [
+        {
+          "title": "AGI Governance for Telecommunications",
+          "description": "The time to act is now. A framework for telecommunications executives to govern AGI across security, token economics, accountability, and ROI. <a href=\"/articles/agi-governance-telecommunications\">Read the article</a>"
+        },
+        {
+          "title": "AI Governance Framework",
+          "description": "Our structured approach to governing AI agents in the enterprise. Four layers, three decision levels. <a href=\"/articles/ai-governance-framework\">Read the framework</a>"
+        }
+      ]
+    },
+    {
+      "title": "Our Work",
+      "features": [
+        {
+          "title": "Governance Frameworks",
+          "description": "Structured approaches to security, accountability, token economics, and ROI for AI agents in the enterprise."
+        },
+        {
+          "title": "Executive AI Onboarding",
+          "description": "Hands-on programs that give leaders direct experience with AI tools, enabling them to drive strategy rather than delegate it."
         }
       ]
     }
