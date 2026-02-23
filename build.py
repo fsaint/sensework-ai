@@ -142,9 +142,10 @@ def build_site():
             slug = article_path.stem
             article_data["slug"] = slug
 
-            # Calculate reading time from content
+            # Calculate reading time and render markdown content
             if article_data.get("content"):
                 article_data["reading_time"] = calculate_reading_time(article_data["content"])
+                article_data["content_html"] = render_markdown(article_data["content"])
 
             articles.append(article_data)
 
