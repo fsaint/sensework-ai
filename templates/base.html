@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="{% block robots %}index, follow{% endblock %}">
-    <meta name="theme-color" content="{{ config.theme_color | default('#2563eb') }}">
+    <meta name="theme-color" content="{{ config.theme_color | default('#6366f1') }}">
 
     <title>{% block title %}{{ config.title }}{% endblock %}</title>
     <meta name="description" content="{% block description %}{{ config.description }}{% endblock %}">
@@ -51,7 +51,11 @@
     {{ json_ld | safe }}
     </script>
 
-    <!-- Preconnect to external resources -->
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
     {% block preconnect %}{% endblock %}
 
     <!-- Styles -->
@@ -68,11 +72,6 @@
     <header class="site-header">
         <nav class="nav-container">
             <a href="/" class="site-logo">{{ config.title }}</a>
-            <ul class="nav-links">
-                {% block nav %}
-                <li><a href="/">Home</a></li>
-                {% endblock %}
-            </ul>
         </nav>
     </header>
 
